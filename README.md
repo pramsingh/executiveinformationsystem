@@ -1,5 +1,5 @@
 # executiveinformationsystem
-eGRC Executive Information System manages project assets risks, governance, and compliance.
+eGRC Executive Information System manages project assets risks, governance, and compliance
 
 - EIS [http://ec2-54-173-189-36.compute-1.amazonaws.com:8080/EIS/gt]
 - Jenkins [http://ec2-54-173-189-36.compute-1.amazonaws.com/jenkins/]
