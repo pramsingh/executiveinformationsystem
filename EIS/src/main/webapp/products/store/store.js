@@ -17,7 +17,7 @@ var ProductSystemStore = Ext.create('Ext.data.Store', {
 	]
 });
 
-var ProductResultsStore = Ext.create('Ext.data.JsonPStore', {
+var ProductResultsStore = Ext.create('Ext.data.JsonStore', {
 	model: 'ProductsResultsModel',
 	proxy: {
 		type: 'ajax',
@@ -25,5 +25,6 @@ var ProductResultsStore = Ext.create('Ext.data.JsonPStore', {
 		reader: {
 			type: 'json'
 		}
-	}
+	},
+	autoLoad: true
 });
