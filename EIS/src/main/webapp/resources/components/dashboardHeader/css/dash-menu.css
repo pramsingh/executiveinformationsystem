@@ -1,0 +1,50 @@
+body{
+	font-family:"Lucida Grande", arial, sans-serif;
+	background:#262626;
+	margin: 0;
+	padding: 0;
+}
+#left{
+	width: 20%;
+	float: left;
+	display: inline;
+}
+
+#center {
+	margin-left: 24%;'
+	width: 65%;
+	display: inline;
+	position: fixed !important;
+}
+
+#right {
+	width: 40%;
+	float: right;
+	display: inline;
+}
+
+ul{
+	margin:0;
+	padding:0;
+}
+
+li{
+	width:100px;
+	height:50px;
+	float:right;
+	color:#191919;
+	text-align:center;
+	overflow:hidden;
+}
+
+a{
+	color:#FFF;
+	text-decoration:none;
+}
+
+/*Menu Color Classes*/
+.green{background:#6AA63B;}
+.yellow{background:#FBC700;}
+.red{background:#D52100;}
+.purple{background:#5122B4;}
+.blue{background:#0292C0;}
