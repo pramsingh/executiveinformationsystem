@@ -20,7 +20,7 @@
 <!-- 	<mvc:default-servlet-handler/> -->
 	<mvc:resources mapping="/resources/**" location="/resources/" />
 	<mvc:resources mapping="/resources1/**" location="resources/" />
-	
+<!--	
 	<bean
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<property name="prefix">
@@ -30,7 +30,7 @@
 			<value>.jsp</value>
 		</property>
 	</bean>
-	
+-->	
 	<!--  org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBean -->
 	
 	<bean id="sessionFactory" class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">        
