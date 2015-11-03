@@ -85,14 +85,14 @@ Ext.onReady(function() {
             	forceFit: true,
             	store: ProductResultsStore,
             	columns: [
-            	  {text: 'Product Name', dataIndex: 'name'},
-            	  {text: 'Version', dataIndex: 'version'},
-            	  {text: 'Branch', dataIndex: 'branch'},
-            	  {text: 'Team Name', dataIndex: 'teamName'},
-            	  {text: 'Type', dataIndex: 'type'},
-            	  {text: 'Category', dataIndex: 'category'},
-            	  {text: 'System Type', dataIndex: 'systemType'},
-            	  {text: 'Project Name', dataIndex: 'projectName'},
+					{text: 'Product Name', dataIndex: 'product_name'},
+					{text: 'Score', dataIndex: 'score'},
+					{text: 'Score Weight', dataIndex: 'score_weight'},
+					{text: 'State', dataIndex: 'product_state'},
+					{text: 'Source', dataIndex: 'source'},
+					{text: 'Lessons Learned', dataIndex: 'lessons_learned'},
+					{text: 'Impact', dataIndex: 'availability_impact'},
+					{text: 'Authentication', dataIndex: 'authentication'}
             	]
             }],
         	bbar: [{
