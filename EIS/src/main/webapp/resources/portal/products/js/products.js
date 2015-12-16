@@ -1,6 +1,6 @@
 $(document).ready(function(){
 	$(".details-button").click(function(){
-		$('input[name="editable"]').bootstrapSwitch('state',false)
+		$('input[name="editable"]').bootstrapSwitch('state',false);
 		$(".details-bar").toggleClass( "open" );
 		$(".details").toggleClass("slide");
 	});

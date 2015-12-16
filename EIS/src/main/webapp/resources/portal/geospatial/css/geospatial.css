@@ -1,3 +1,8 @@
+html, body { height: 100%; margin: 0; padding: 0; }
+#map {
+	width: 100%;
+	height: 100%;
+}
 .filter-panel .x-panel-body-default {
 	background: #7a7a7a none repeat scroll 0 0;
 	border-color: #333;
@@ -85,6 +90,11 @@
 	text-decoration: none;
 	background-image: none;
 }
+.x-accordion-item .x-accordion-hd {
+    background: #508eeb none repeat scroll 0 0;
+    border-top-color: #508eeb;
+    padding: 4px 5px 5px;
+}
 a {
 	outline: none !important;
 	text-decoration: none;
@@ -94,10 +104,10 @@ a:hover {
 	text-decoration: none;
 }
 @import url("//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.0.3/css/font-awesome.min.css");
-.details{
+.metrics{
 	position: absolute;
-	right: 0;
-	top: 175px;
+	right: 49%;
+	bottom: 0;
 	height: 40px;
 	width: 40px;
 	list-style-type: none;
@@ -106,14 +116,13 @@ a:hover {
 	z-index:5; 
 	overflow:hidden;
 	border-top-left-radius: 15px;
-	border-bottom-left-radius: 15px;
+	border-top-right-radius: 15px;
 	box-shadow: 2px 0 18px rgba(0, 0, 0, 0.26);
 }
 
-.details-bar {
+.metrics-bar {
 	position: fixed;
-	top: 155px;
-	float: right;
+	bottom: 0;
 	height: 60px;
 	width: 50px;
 	list-style-type: none;
@@ -124,7 +133,7 @@ a:hover {
 	overflow:hidden;
 	box-shadow: 2px 0 18px rgba(0, 0, 0, 0.26);
 }
-.details li a{
+.metrics li a{
 	display: block;
 	height: 5em;
 	width: 5em;
@@ -136,11 +145,11 @@ a:hover {
 	border-bottom: 1px solid rgba(0, 0, 0, 0.05);
 	transition: background 0.1s ease-in-out;
 }
-.details li a{
+.metrics li a{
 	display: block;
 	transition: background 0.1s ease-in-out;
 }
-.details li a:before {
+.metrics li a:before {
 	font-family: FontAwesome;
 	speak: none;
 	text-indent: 0em;
@@ -150,28 +159,30 @@ a:hover {
 	width: 100%;
 	height: 100%;
 }
-.details li a.home:before {
-	content: "\f039";
+.metrics li a.graph:before {
+	content: "\f201";
 }
-.details li a:hover,
-.details-bar li a:hover,
-.details li:first-child a {
+.metrics li a:hover,
+.metrics-bar li a:hover,
+.metrics li:first-child a {
 	background: #267fdd;
 	color: #fff;
 }
-.details-bar{
+.metrics-bar{
+	border-top-left-radius: 15px;
+	border-top-right-radius: 15px;
 	overflow:hidden;
-	right:0;
+	bottom:0;
 	z-index:5;
 	width:0;
 	height:0;
 	transition: all 0.1s ease-in-out;
 }
 
-.details{
+.metrics{
 	transition: all 0.1s ease-in-out;
 }
-.details-bar li a{
+.metrics-bar li a{
 	cursor: default;
 	display: block;
 	height: 4em;
@@ -185,35 +196,33 @@ a:hover {
 	transition: background 0.1s ease-in-out;
 }
 
-.details li a{
+.metrics li a{
 	display: block;
 	transition: background 0.1s ease-in-out;
 }
-.details-bar li:first-child a{
-	height:5em;
+.metrics-bar li:first-child a{
+	height:2em;
 	background: #267fdd;
 	color: #fff; 
-	line-height:5;
+	line-height:2;
 }
 .open{
-	width:500px;
-	height:700px;
+	width:100%;
+	height:200px;
 }
 @media all and (max-width: 500px) {
-	.details{
+	.metrics{
 		height:5em;
 		width:100%;
 	}
-	.details li{
+	.metrics li{
 		display:inline-block;
-		float:right;
 	}
-	.details-bar li a{
+	.metrics-bar li a{
 		width:100%;
 	}
-	.details-bar{
+	.metrics-bar{
 		width:100%;
-		right:0;
 		height:0;
 	}    
 	.open{
@@ -222,227 +231,58 @@ a:hover {
 	}
 }
 @media screen and (max-height: 34em){
-	.details li,
-	.details-bar {
+	.metrics li,
+	.metrics-bar {
 		font-size:70%;
 	}
 }
 @media screen and (max-height: 34em) and (max-width: 500px){
-	.details{
+	.metrics{
 		height:3.5em;
 	}
 }
-.details-bar:hover {
+.metrics-bar:hover {
 	background: rgba(0, 0, 0, 0.73);
 }
-.detailsContents {
-	padding: 20px;
-	color: #fff;
-}
-.edit-switch {
-	float: right;
-	margin-top: -60px;
-	margin-right: -10px;
-	color: #103A66;
-}
-.logo {
-	background-image: url('../images/ravens_logo.png');
-	background-size: contain;
-	width: 125px;
-	height: 73px;
-	float: left;
-}
-.teamName {
-	margin-left: 160px;
-	font-size: 40pt;
-	font-weight: bold;
-}
-.record {
-	width: 100%;
-	text-align: center;
-}
-#chart {
-	height: 100px;
-	width: 450px;
-}
-.content {
-	height: 350px;
-	overflow-y: scroll;
-}
-
-.add{
-	position: absolute;
-	right: 0;
-	top: 175px;
-	height: 40px;
-	width: 40px;
-	list-style-type: none;
-	margin: 42px 0 0;
-	padding: 0;
-	z-index:5; 
-	overflow:hidden;
-	border-top-left-radius: 15px;
-	border-bottom-left-radius: 15px;
-	box-shadow: 2px 0 18px rgba(0, 0, 0, 0.26);
-}
-
-.add-bar {
-	position: fixed;
-	top: 217px;
-	float: right;
-	height: 60px;
-	width: 50px;
-	list-style-type: none;
-	margin: 0;
-	padding: 0;
-	background: rgba(0, 0, 0, 0.26);
-	z-index:10; 
-	overflow:hidden;
-	box-shadow: 2px 0 18px rgba(0, 0, 0, 0.26);
-}
-.add li a{
-	display: block;
-	height: 5em;
-	width: 5em;
-	line-height: 3.5em;
-	right: 1em;
-	margin-top:-175px;
-	text-align:center;
-	color: #72739f;
-	position: relative;
-	border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-	transition: background 0.1s ease-in-out;
-}
-.add li a{
-	display: block;
-	transition: background 0.1s ease-in-out;
-}
-.add li a:before {
-	font-family: FontAwesome;
-	speak: none;
-	text-indent: 0em;
-	position: absolute;
-	top: 0;
-	right: 0;
-	width: 100%;
-	height: 100%;
-}
-.add li a.add:before {
-	content: "\f067";
-}
-.add li a:hover,
-.add-bar li a:hover,
-.add li:first-child a {
-	background: #26dd66;
-	color: #fff;
-}
-.add-bar{
-	overflow:hidden;
-	right:0;
-	z-index:5;
-	width:0;
-	height:0;
-	transition: all 0.1s ease-in-out;
-}
-
-.add{
-	transition: all 0.1s ease-in-out;
-}
-.add-bar li a{
-	cursor: default;
-	display: block;
-	height: 4em;
-	line-height: 4em;
-	text-align:center;
-	color: #72739f;
-	text-decoration:none; 
-	position: relative;
-	font-family:verdana;
-	border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-	transition: background 0.1s ease-in-out;
-}
-
-.add li a{
-	display: block;
-	transition: background 0.1s ease-in-out;
-}
-.add-bar li:first-child a{
-	height:5em;
-	background: #26dd66;
-	color: #fff; 
-	line-height:5
-}
-.open{
-	width:500px;
-	height:700px;
-}
-@media all and (max-width: 500px) {
-	.add{
-		height:5em;
-		width:100%;
-	}
-	.add li{
-		display:inline-block;
-		float:right;
-	}
-	.add-bar li a{
-		width:100%;
-	}
-	.add-bar{
-		width:100%;
-		right:0;
-		height:0;
-	}    
-	.open{
-		width:100%;
-		height:auto;
-	}
-}
-@media screen and (max-height: 34em){
-	.add li,
-	.add-bar {
-		font-size:70%;
-	}
-}
-@media screen and (max-height: 34em) and (max-width: 500px){
-	.add{
-		height:3.5em;
-	}
-}
-.add-bar:hover {
-	background: rgba(0, 0, 0, 0.73);
-}
-
 .slide{
-	width: 548px;
+	height: 248px;
 	box-shadow: none;
 }
+.metrics-container{
+	position: relative;
+	clear: both;
+}
 
-.add-bar form{
-	padding: 20px;
-	color: #fff;
+#left_donut{
+	position: relative;
+	float: left;
+	height: 190px;
+	width: 30%;
 }
-.form-group{
-	padding: 5px;
-}
-.formHolder {
-	height: 570px;
-	overflow-x: hidden;
-	overflow-y: scroll;
-}
-.edit-form{
-	display: none;
-	height: 570px;
-	overflow-x: hidden;
-	overflow-y: scroll;
-}
-.file{
-	visibility: hidden;
+#center_dash{
+	float: left;
+	margin-left: 20%;
 	position: absolute;
+	width: 40%;
 }
-.input-group[class*="col-"]{
-	padding-left: 15px;
+#left_graph{
+	float: left;
+	height: 190px;
+	width: 33%;
 }
-.input-group-addon, .input-group-btn{
-	left: -15px !important;
+#center_graph{
+	float: left;
+	height: 190px;
+	width: 33%;
+}
+#right_graph{
+	float: left;
+	height: 190px;
+	width: 33%;
+}
+#right_donut{
+	float: right;
+	position: relative;
+	height: 190px;
+	width: 30%;
 }
