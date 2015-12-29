@@ -48,7 +48,25 @@ var results = Ext.create('Ext.panel.Panel', {
 		   {text: 'Version', dataIndex: 'version'},
 		   {text: 'Latitude', dataIndex: 'latitude'},
 		   {text: 'Longitude', dataIndex: 'longitude'},
-		   {text: 'State', dataIndex: 'product_state'}
+		   {text: 'State', 
+			dataIndex: 'product_state',
+			renderer: function(value, meta){
+				switch(value){
+				case "active":
+					meta.tdCls = 'active-cell';
+					break;
+				case "inactive":
+					meta.tdCls = 'inactive-cell';
+					break;
+				case "major":
+					meta.tdCls = 'major-cell';
+					break;
+				case "pending":
+					meta.tdCls = 'pending-cell';
+					break;
+				}
+			}
+		   }
 		],
 		listeners: {
 			celldblclick: function(td, cellIndex, record, tr, rowIndex, e, eOpts){

@@ -8,11 +8,53 @@ var map;
 function initMap() {
 	setTimeout(function(){
 		map = new google.maps.Map(document.getElementById('map'), {
-	    center: {lat: -34.397, lng: 150.644},
+	    center: {lat: 38.9047, lng: -77.0164},
 	    zoom: 8
 	  });
+		setMarkers(map);
 	}, 3000);
 };
+
+function setMarkers(map){
+	var storeName = ProductResultsStore,
+		locations_to_plot = [],
+		locations_count = storeName.count();
+	for (var i = 0; i < locations_count; i++){
+		var records = [
+		    storeName.getAt(i).get('product_name'),
+		    parseFloat(storeName.getAt(i).get('latitude')), 
+		    parseFloat(storeName.getAt(i).get('longitude')), 
+		    storeName.getAt(i).get('product_state')
+		];
+		locations_to_plot.push(records);
+	}
+	for(var i = 0; i < locations_to_plot.length; i++){
+		var location = locations_to_plot[i];
+		var stateStatus = location[3];
+		var icon;
+		switch (stateStatus){
+		case "active":
+			icon = "http://maps.google.com/mapfiles/ms/icons/green-dot.png";
+			break;
+		case "inactive":
+			icon = "http://maps.google.com/mapfiles/ms/icons/yellow-dot.png";
+			break;
+		case "major":
+			icon = "http://maps.google.com/mapfiles/ms/icons/red-dot.png";
+			break;
+		case "pending":
+			icon = "http://maps.google.com/mapfiles/ms/icons/blue-dot.png";
+			break;
+		}
+		var marker = new google.maps.Marker({
+			position: {lat: location[1], lng: location[2]},
+			icon: icon,
+			map: map,
+			title: location[0]
+		});
+	}
+};
+
 function reCenterMap(lat,long){
 	map.setZoom(16);
 	map.setCenter(new google.maps.LatLng(parseFloat(lat), parseFloat(long)));

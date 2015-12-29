@@ -286,3 +286,51 @@ a:hover {
 	height: 190px;
 	width: 30%;
 }
+.active-cell {
+	position: relative;
+}
+.active-cell:before{
+	content: "\f0c8";
+	font-family: FontAwesome;
+	font-size: 16px;
+	color: #00b300;
+	position: absolute;
+	padding-left: 35%;
+	padding-top: 4px;
+}
+.inactive-cell {
+	position: relative;
+}
+.inactive-cell:before{
+	content: "\f0c8";
+	font-family: FontAwesome;
+	font-size: 16px;
+	color: #ffff00;
+	position: absolute;
+	padding-left: 35%;
+	padding-top: 4px;
+}
+.major-cell {
+	position: relative;
+}
+.major-cell:before{
+	content: "\f0c8";
+	font-family: FontAwesome;
+	font-size: 16px;
+	color: #ff0000;
+	position: absolute;
+	padding-left: 35%;
+	padding-top: 4px;
+}
+.pending-cell {
+	position: relative;
+}
+.pending-cell:before{
+	content: "\f0c8";
+	font-family: FontAwesome;
+	font-size: 16px;
+	color: #0000ff;
+	position: absolute;
+	padding-left: 35%;
+	padding-top: 4px;
+}
