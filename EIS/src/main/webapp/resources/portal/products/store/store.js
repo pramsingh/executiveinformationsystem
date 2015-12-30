@@ -17,11 +17,11 @@ var ProductSystemStore = Ext.create('Ext.data.Store', {
 	]
 });
 
-var ProductResultsStore = Ext.create('Ext.data.JsonStore', {
+var ProductResultsStore = Ext.create('Ext.data.Store', {
 	model: 'ProductsResultsModel',
 	proxy: {
-		type: 'jsonp',
-		url: gtConstants.Util.domain + gtConstants.URI.getProducts
+		type: 'ajax',
+		url: gtConstants.URI.getProducts
 	},
 	autoLoad: true
 });

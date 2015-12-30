@@ -17,13 +17,13 @@ Ext.define('ProductSystemModel', {
 Ext.define('ProductsResultsModel', {
 	extend: 'Ext.data.Model',
 	fields: [
-	  {name: 'product_name', type: 'string'},
-	  {name: 'score', type: 'string'},
-	  {name: 'score_weight', type: 'string'},
-	  {name: 'product_state', type: 'string'},
-	  {name: 'source', type: 'string'},
-	  {name: 'lessons_learned', type: 'string'},
-	  {name: 'availability_impact', type: 'string'},
-	  {name: 'authentication', type: 'string'}
+	         'product_name',
+	         'score',
+	         'score_weight',
+	         'product_state',
+	         'source',
+	         'lessons_learned',
+	         'availability_impact',
+	         'authentication'
 	]
 });
