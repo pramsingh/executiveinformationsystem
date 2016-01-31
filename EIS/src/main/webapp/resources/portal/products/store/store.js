@@ -1,9 +1,11 @@
 var ProductStateStore = Ext.create('Ext.data.Store', {
 	model: 'ProductStateModel',
 	data: [
-        {code:"Active", description:"Active"},
-        {code:"Code", description:"Code"},
-        {code:"Unit Test", description:"Unit Test"}
+        {code:"Critical", description:"critical"},
+        {code:"Major", description:"major"},
+        {code:"Moderate", description:"moderate"},
+        {code:"Minor", description:"minor"},
+        {code:"Normal", description:"normal"}
     ]
 });
 
@@ -21,7 +23,10 @@ var ProductResultsStore = Ext.create('Ext.data.Store', {
 	model: 'ProductsResultsModel',
 	proxy: {
 		type: 'ajax',
-		url: gtConstants.URI.getProducts
+		url: '../resources/data/productResults.json',
+		reader: {
+			type: 'json'
+		}
 	},
 	autoLoad: true
 });
