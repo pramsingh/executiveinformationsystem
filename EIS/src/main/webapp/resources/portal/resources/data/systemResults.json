@@ -1,0 +1,87 @@
+[
+	{
+		"system_name": "DogFish",
+		"products": [
+			{
+				"product_name": "Belkin F9K1102",
+				"exploitability_subscore": 8.6
+			},
+			{
+				"product_name": "NETGEAR WNR1000v3",
+				"exploitability_subscore": 10.0
+			},
+			{
+				"product_name": "HP ArcSight",
+				"exploitability_subscore": 3.9
+			},
+			{
+				"product_name": "Medialink MWN-WAPR300N",
+				"exploitability_subscore": 5.5
+			}
+		],
+		"owner_name": "Discovery Communications",
+		"division": "Animal Planet",
+		"location": {
+			"latitude": 38.995439,
+			"longitude": -77.028061,
+			"city": "Silver Spring",
+			"state": "MD"
+		},
+		"contact": {
+			"sso_name": "Kevin Loftis",
+			"sso_email": "kevin.loftis@discovery.com",
+			"sso_phone": "240-662-2000"
+		},
+		"last_assessment_date": "12-31-2015"
+	},
+	{
+		"system_name": "FinalFrontier",
+		"products": [
+			{
+				"product_name": "HP ArcSight",
+				"exploitability_subscore": 3.9
+			},
+			{
+				"product_name": "Medialink MWN-WAPR300N",
+				"exploitability_subscore": 5.5
+			}
+		],
+		"owner_name": "NASA",
+		"division": "ESD",
+		"location": {
+			"latitude": 38.995672,
+			"longitude": -76.851646,
+			"city": "Greenbelt",
+			"state": "MD"
+		},
+		"contact": {
+			"sso_name": "Dennis Vander Tuig",
+			"sso_email": "dennis.c.vandertuig@nasa.gov",
+			"sso_phone": "301-286-7342"
+		},
+		"last_assessment_date": "01-12-2014"
+	},
+	{
+		"system_name": "HigherLearning",
+		"products": [
+			{
+				"product_name": "HP ArcSight",
+				"exploitability_subscore": 3.9
+			}
+		],
+		"owner_name": "Denver University",
+		"division": "Communications",
+		"location": {
+			"latitude": 39.676039,
+			"longitude": -104.962068,
+			"city": "Denver",
+			"state": "CO"
+		},
+		"contact": {
+			"sso_name": "Theresa Ahrens",
+			"sso_email": "theresa.ahrens@du.edu",
+			"sso_phone": "303-871-4778"
+		},
+		"last_assessment_date": "10-21-2015"
+	}	
+]

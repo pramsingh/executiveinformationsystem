@@ -1,0 +1,45 @@
+.Date {
+	float: right;
+}
+.details-panel div label{
+	padding-right: 3px;
+}
+.Name {
+	clear: left;
+	text-align: center;
+	font-size: 20pt;
+	font-weight: bold;
+	padding-bottom: 10px;
+}
+.owner {
+	padding-top: 15px;
+}
+#product_table{
+	padding: 20px;
+}
+#product_table th{
+	text-align: center;
+	color: #CF3A19;
+}
+.location i{
+	padding-left: 5px;
+}
+#contact {
+	padding-top: 15px;
+	width: 100%;
+	text-align: center;
+}
+#link_holder {
+	padding-top: 25px;
+	width: 100%;
+	text-align: center;
+}
+#product_list {
+	z-index: 100;
+}
+.popover-title{
+	background:#508eeb;
+}
+.popover-content{
+	background:#555555;
+}

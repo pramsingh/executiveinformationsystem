@@ -16,7 +16,8 @@ gtConstants.URI = {
 };
 
 gtConstants.MAP = {
-	getMap: "https://www.google.com/maps/embed/v1/place?key=AIzaSyCuyBrF3nvxKDKPoobacpXq5lia8yBJIeo&q=near+20774"
+	getMap: "https://www.google.com/maps/embed/v1/place?key=AIzaSyCuyBrF3nvxKDKPoobacpXq5lia8yBJIeo&q=near+20774",
+	getLookUp:"https://maps.googleapis.com/maps/api/geocode/json?address=[city],[state]&key=AIzaSyDkl3o61yGhTrfnOpizsJdslGPu9N2DWSY" 
 };
 
 gtConstants.CVE = {

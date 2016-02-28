@@ -1,0 +1,228 @@
+<!doctype html>
+<html>
+  <head>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="../resources/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../resources/css/ext-theme-gray-all.css">
+  <link rel="stylesheet" href="../resources/css/bootstrap-switch.css">
+  <link rel="stylesheet" href="../resources/components/css/widget.css">
+  <link rel="stylesheet" href="../resources/css/datepicker.css">
+  <link rel="stylesheet" href="../resources/css/select2.min.css">
+  <link rel="stylesheet" href="../resources/css/select2-bootstrap.min.css">
+  <link rel="stylesheet" href="../resources/css/gt-eis-style.css">
+  <link rel="stylesheet" href="css/systems.css">
+  <script src="../resources/conf.js"></script>
+  <script src="../resources/js/ext-all.js"></script>
+  <script src="../resources/js/jquery.min.js"></script>
+  <script src="../resources/js/bootstrap.min.js"></script>
+  <script src="../resources/js/bootstrap-switch.js"></script>
+  <script src="../resources/components/widgetStore/widgetStore.js"></script>
+  <script src="../resources/components/widgets/widgets.js"></script>
+  <script src="../resources/components/widgetController/widgetController.js"></script>
+  <script src="model/model.js"></script>
+  <script src="store/store.js"></script>
+  <script src="view/view.js"></script>
+  <script src="controller/controller.js"></script>
+  <script src="../resources/js/bootstrap-datepicker.js"></script>
+  <script src="../resources/js/select2.min.js"></script>
+  <script src="js/systems.js"></script>
+  </head>
+  <body>
+	 <ul class="details">
+	 	<li title="View Details"><a href="#" class="details-button home"></a></li>
+	 </ul>
+	 <ul class="add">
+	 	<li title="Add Product"><a href="#" class="add-button add"></a></li>
+	 </ul>
+	 <ul class="details-bar">
+	 	<li>
+	 		<a href="#">System Details</a>
+	 		<div class="detailsContents">
+	 			<div class="detailsHeader">
+	 				<div class="edit-switch">
+	 					<label class="checkbox-inline">
+	 						Edit: <input id="editbtn" title="Edit Product Details" type="checkbox" data-size="mini" name="editable">
+	 					</label>
+	 				</div>
+	 				<div class="edit-form">
+	 					<form class="form-horizontal">
+							<div class="form-group">
+								<label class="control-label col-xs-3" for="last_assessment_date_input">Last Assessment:</label>
+									<div class="input-group col-xs-9 input-append date" id="datepick" data-date-format="mm/dd/yyyy">
+										<span class="input-group-addon add-on"><i class="fa fa-calendar"></i></span>
+										<input type="text" class="form-control" id="last_assessment_date_input" disabled>
+									</div>
+							</div>
+							<div class="form-group">
+								<label class="control-label col-xs-3" for="system_name_input">Name:</label>
+								<div class="col-xs-9">
+									<input type="text" class="form-control" id="system_name_input">
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="control-label col-xs-3" for="owner_name_input">Owner Name:</label>
+								<div class="col-xs-9">
+									<input type="text" class="form-control" id="owner_name_input">
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="control-label col-xs-3" for="division_input">Division:</label>
+								<div class="col-xs-9">
+									<input type="text" class="form-control" id="division_input">
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="control-label col-xs-3" for="product_selector">Products:</label>
+								<div class="col-xs-9 form-horizontal" id="product_select">
+									<select class="form-control select2-select" id="product_list" name="product_list" multiple="multiple"></select>
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="control-label col-xs-3" for="state_input">State:</label>
+								<div class="col-xs-9">
+									<select class="form-control select2-select" id="state_list" name="state_list"></select>
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="control-label col-xs-3" for="city_input">City:</label>
+								<div class="col-xs-9">
+									<input type="text" class="form-control" id="city_input">
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="control-label col-xs-3" for="sso_name_input">SSO Name:</label>
+								<div class="col-xs-9">
+									<input type="text" class="form-control" id="sso_name_input">
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="control-label col-xs-3" for="sso_email_input">SSO Email:</label>
+								<div class="col-xs-9">
+									<input type="email" class="form-control" id="sso_email_input">
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="control-label col-xs-3" for="sso_phone_input">SSO Phone:</label>
+								<div class="col-xs-9">
+									<input type="text" class="form-control" id="sso_phone_input">
+								</div>
+							</div>
+							<div class="form-group">
+								<div class="col-xs-offset-4 col-xs-9">
+									<input type="submit" class="btn btn-primary" value="Submit">
+									<input type="reset" class="btn btn-default" value="Reset" id="edit_reset">
+								</div>
+							</div>
+						</form>
+	 				</div>
+	 				<div class="details-panel">
+	 					<div class="Name">
+							<span id="system_name"></span>
+						</div>
+						<div class="Date">
+							<label>Last Assessment Date:</label><span id="last_assessment_date"></span>
+						</div>
+						<div id="State">
+							<label>System State:</label><span id="system_state"></span>
+						</div>
+						<div class="owner">
+							<label>Owner Name:</label><span id="owner_name"></span>
+						</div>
+						<div class="division">
+							<label>Division:</label><span id="division"></span>
+						</div>
+						<div id="product_table"></div>
+						<div class="location">
+							<label>Location:</label><span id="location_dir"></span>
+						</div>
+						<div id="contact">
+							<label>SSO Name:</label><span id="sso_name"></span><br>
+							<label>SSO Email:</label><span id="sso_email"></span><br>
+							<label>SSO Phone:</label><span id="sso_phone"></span>
+						</div>
+						<div id="link_holder">
+							<button type="button" class="btn btn-success fa fa-globe" id="jumpToGeo"> Jump To GEO</button>
+						</div>
+	 				</div>
+	 			</div>
+	 		</div>
+	 	</li>
+	 </ul>
+	 <ul class="add-bar">
+	 	<li>
+	 		<a href="#">Add System</a>
+	 		<div class="formHolder" id="add-form">
+	 			<form class="form-horizontal">
+					<div class="form-group">
+						<label class="control-label col-xs-3" for="last_assessment_date_add_input">Last Assessment:</label>
+						<div class="input-group col-xs-9 input-append date" id="dp2" data-date-format="mm/dd/yyyy">
+							<span class="input-group-addon add-on"><i class="fa fa-calendar"></i></span>
+							<input type="text" class="form-control" id="last_assessment_date_add_input" placeholder="mm/dd/yyyy">
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="control-label col-xs-3" for="system_name_add_input">Name:</label>
+						<div class="col-xs-9">
+							<input type="text" class="form-control" id="system_name_add_input" placeholder="System Name">
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="control-label col-xs-3" for="owner_name_add_input">Owner Name:</label>
+						<div class="col-xs-9">
+							<input type="text" class="form-control" id="owner_name_add_input" placeholder="Owner Name">
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="control-label col-xs-3" for="division_add_input">Division:</label>
+						<div class="col-xs-9">
+							<input type="text" class="form-control" id="division_add_input" placeholder="Division Name">
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="control-label col-xs-3" for="product_add_selector">Products:</label>
+						<div class="col-xs-9 form-horizontal" id="product_add_select">
+							<select class="form-control select2-select" id="product_add_list" name="product_add_list" multiple="multiple"></select>
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="control-label col-xs-3" for="state_add_input">State:</label>
+						<div class="col-xs-9">
+							<select class="form-control select2-select" id="state_add_list" name="state_add_list"></select>
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="control-label col-xs-3" for="city_add_input">City:</label>
+						<div class="col-xs-9">
+							<input type="text" class="form-control" id="city_add_input" placeholder="Washington">
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="control-label col-xs-3" for="sso_name_add_input">SSO Name:</label>
+						<div class="col-xs-9">
+							<input type="text" class="form-control" id="sso_name_add_input" placeholder="SSO Name">
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="control-label col-xs-3" for="sso_email_add_input">SSO Email:</label>
+						<div class="col-xs-9">
+							<input type="text" class="form-control" id="sso_email_add_input" placeholder="sso_name@email.com">
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="control-label col-xs-3" for="sso_phone_add_input">SSO Phone:</label>
+						<div class="col-xs-9">
+							<input type="text" class="form-control" id="sso_phone_add_input" placeholder="555-555-5555">
+						</div>
+					</div>
+					<div class="form-group">
+						<div class="col-xs-offset-4 col-xs-9">
+							<input type="submit" class="btn btn-primary" value="Submit">
+							<input type="reset" class="btn btn-default" value="Reset" id="add_form_reset">
+						</div>
+					</div>
+				</form>
+	 		</div>
+	 	</li>
+	 </ul>
+  </body>
+</html>

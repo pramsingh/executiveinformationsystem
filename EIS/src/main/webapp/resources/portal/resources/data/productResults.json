@@ -15,7 +15,7 @@
 	   "impact_type": "Allows unauthorized disclosure of information; Allows unauthorized modification; Allows disruption of service"
 	},
 	{
-	   "product_name": "OrientDB Server Community Edition", 
+	   "product_name": "OrientDB ServerCE", 
 	   "impact_subscore": 2.9,
 	   "exploitability_subscore": 8.6, 
 	   "integrity": "Low",
@@ -30,7 +30,7 @@
 	   "impact_type": "Allows unauthorized modification"
 	},
 	{
-	   "product_name": "Idera Uptime Infrastructure Monitor", 
+	   "product_name": "Idera UptimeMonitor", 
 	   "impact_subscore": 2.9,
 	   "exploitability_subscore": 10.0, 
 	   "integrity": "None",
@@ -45,7 +45,7 @@
 	   "impact_type": "Allows unauthorized disclosure of information"
 	},
 	{
-	   "product_name": "Toshiba 4690 Operating System 6 Release 3", 
+	   "product_name": "Toshiba 4690-3", 
 	   "impact_subscore": 2.9,
 	   "exploitability_subscore": 8.6, 
 	   "integrity": "None",
@@ -60,7 +60,7 @@
 	   "impact_type": "Allows unauthorized disclosure of information"
 	},
 	{
-	   "product_name": "Seagate GoFlex Satellite", 
+	   "product_name": "Seagate GoFlexSatellite", 
 	   "impact_subscore": 10.0,
 	   "exploitability_subscore": 10.0, 
 	   "integrity": "High",
@@ -75,7 +75,7 @@
 	   "impact_type": "Allows unauthorized disclosure of information; Allows unauthorized modification; Allows disruption of service"
 	},
 	{
-	   "product_name": "Epiphany Cardio Server", 
+	   "product_name": "Epiphany CardioServer", 
 	   "impact_subscore": 6.4,
 	   "exploitability_subscore": 10.0, 
 	   "integrity": "High",
@@ -105,7 +105,7 @@
 	   "impact_type": "Allows unauthorized modification"
 	},
 	{
-	   "product_name": "IPSwitch WhatsUp Gold", 
+	   "product_name": "IPSwitch WhatsUpGold", 
 	   "impact_subscore": 6.4,
 	   "exploitability_subscore": 8.0, 
 	   "integrity": "None",
@@ -135,7 +135,7 @@
 	   "impact_type": "Allows unauthorized disclosure of information; Allows unauthorized modification; Allows disruption of service"
 	},
 	{
-	   "product_name": "Commvault Edge Server 10 R2", 
+	   "product_name": "Commvault EdgeServer10-R2", 
 	   "impact_subscore": 10.0,
 	   "exploitability_subscore": 10.0, 
 	   "integrity": "",
@@ -180,7 +180,7 @@
 	   "impact_type": "Allows unauthorized disclosure of information; Allows unauthorized modification; Allows disruption of service"
 	},
 	{
-	   "product_name": "Amped Wireless R10000", 
+	   "product_name": "Amped R10000", 
 	   "impact_subscore": 2.9,
 	   "exploitability_subscore": 10.0, 
 	   "integrity": "Low",
@@ -210,7 +210,7 @@
 	   "impact_type": "Allows unauthorized disclosure of information; Allows unauthorized modification; Allows disruption of service"
 	},
 	{
-	   "product_name": "Mediabridge Medialink MWN-WAPR300N", 
+	   "product_name": "Medialink MWN-WAPR300N", 
 	   "impact_subscore": 10.0,
 	   "exploitability_subscore": 5.5, 
 	   "integrity": "High",
@@ -240,7 +240,7 @@
 	   "impact_type": "Allows unauthorized disclosure of information; Allows unauthorized modification; Allows disruption of service"
 	},
 	{
-	   "product_name": "Belkin F9K1102 2", 
+	   "product_name": "Belkin F9K1102/2", 
 	   "impact_subscore": 10.0,
 	   "exploitability_subscore": 10.0, 
 	   "integrity": "High",
@@ -255,7 +255,7 @@
 	   "impact_type": "Allows unauthorized disclosure of information; Allows unauthorized modification; Allows disruption of service"
 	},
 	{
-	   "product_name": "Belkin F9K1102 2", 
+	   "product_name": "Belkin F9K1102/2", 
 	   "impact_subscore": 10.0,
 	   "exploitability_subscore": 8.6, 
 	   "integrity": "High",
@@ -270,7 +270,7 @@
 	   "impact_type": "Allows unauthorized disclosure of information; Allows unauthorized modification; Allows disruption of service"
 	},
 	{
-	   "product_name": "ZyXEL P-660HW-T1 2", 
+	   "product_name": "ZyXEL P-660HW-T1", 
 	   "impact_subscore": 2.9,
 	   "exploitability_subscore": 8.6, 
 	   "integrity": "Low",
@@ -300,7 +300,7 @@
 	   "impact_type": "Allows unauthorized disclosure of information; Allows unauthorized modification; Allows disruption of service"
 	},
 	{
-	   "product_name": "Datalex airline booking", 
+	   "product_name": "Datalex booking", 
 	   "impact_subscore": 6.4,
 	   "exploitability_subscore": 10.0, 
 	   "integrity": "",
