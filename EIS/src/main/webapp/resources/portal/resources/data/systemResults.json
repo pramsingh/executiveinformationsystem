@@ -62,7 +62,7 @@
 		"last_assessment_date": "01-12-2014"
 	},
 	{
-		"system_name": "HigherLearning",
+		"system_name": "ChalkedUp2B",
 		"products": [
 			{
 				"product_name": "HP ArcSight",
@@ -83,5 +83,133 @@
 			"sso_phone": "303-871-4778"
 		},
 		"last_assessment_date": "10-21-2015"
-	}	
+	},
+	{
+		"system_name": "GreenHornet",
+		"products": [
+			{
+				"product_name": "Belkin F9K1102",
+				"exploitability_subscore": 8.6
+			},
+			{
+				"product_name": "Idera UptimeMonitor",
+				"exploitability_subscore": 10.0
+			},
+			{
+				"product_name": "Seagate GoFlexSatellite",
+				"exploitability_subscore": 10.0
+			},
+			{
+				"product_name": "NETGEAR WNR1000v3",
+				"exploitability_subscore": 10.0
+			}
+		],
+		"owner_name": "Space Operations Simulation Center",
+		"division": "SOSC",
+		"location": {
+			"latitude": 37.4159391,
+			"longitude": -122.0378213,
+			"city": "Sunnyvale",
+			"state": "CA"
+		},
+		"contact": {
+			"sso_name": "Rick Ambrose",
+			"sso_email": "rfambrose@lmco.com",
+			"sso_phone": "800-367-5690"
+		},
+		"last_assessment_date": "01-24-2013"
+	},
+	{
+		"system_name": "BlueCyanne",
+		"products": [
+			{
+				"product_name": "ReadyNet WRT300N-DD",
+				"exploitability_subscore": 8.6
+			},
+			{
+				"product_name": "Amped R10000",
+				"exploitability_subscore": 10.0
+			},
+			{
+				"product_name": "NETGEAR WNR1000v3",
+				"exploitability_subscore": 10.0
+			}
+		],
+		"owner_name": "NASA Ames Research Center",
+		"division": "R&D",
+		"location": {
+			"latitude": 37.417520,
+			"longitude": -122.052595,
+			"city": "Moffett Field",
+			"state": "CA"
+		},
+		"contact": {
+			"sso_name": "Kimberly Williams",
+			"sso_email": "kimberly.k.williams@nasa.gov",
+			"sso_phone": "650-604-4789"
+		},
+		"last_assessment_date": "5-23-2015"
+	},
+	{
+		"system_name": "RocketMan",
+		"products": [
+			{
+				"product_name": "Medialink MWN-WAPR300N",
+				"exploitability_subscore": 5.5
+			},
+			{
+				"product_name": "ZyXEL PMG5318-B20A",
+				"exploitability_subscore": 10.0
+			},
+			{
+				"product_name": "Qolsys IQ",
+				"exploitability_subscore": 8.6
+			}
+		],
+		"owner_name": "NASA Kennedy Space Center",
+		"division": "Prototype Development Lab",
+		"location": {
+			"latitude": 28.521100,
+			"longitude": -80.644977,
+			"city": "Merritt Island",
+			"state": "FL"
+		},
+		"contact": {
+			"sso_name": "Linda Cureton",
+			"sso_email": "linda.y.cureton@nasa.gov",
+			"sso_phone": "321-449-4400"
+		},
+		"last_assessment_date": "12-23-2014"
+	},
+	{
+		"system_name": "BeyondTomorrow",
+		"products": [
+			{
+				"product_name": "Belkin F9K1102/2",
+				"exploitability_subscore": 10.0
+			},
+			{
+				"product_name": "Datalex booking",
+				"exploitability_subscore": 10.0
+			},
+			{
+				"product_name": "Qolsys IQ",
+				"exploitability_subscore": 8.6
+			}
+		],
+		"owner_name": "NASA Johnson Space Center",
+		"division": "Human Spaceflight",
+		"location": {
+			"latitude": 29.552912,
+			"longitude": -95.093385,
+			"city": "Houston",
+			"state": "TX"
+		},
+		"contact": {
+			"sso_name": "Dr. Ellen Ochoa",
+			"sso_email": "ellen.l.ochoa@nasa.gov",
+			"sso_phone": "281-483-5111"
+		},
+		"last_assessment_date": "11-14-2015"
+	}
 ]
