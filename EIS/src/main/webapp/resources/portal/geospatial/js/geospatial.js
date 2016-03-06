@@ -16,15 +16,15 @@ function initMap() {
 };
 
 function setMarkers(map){
-	var storeName = ProductResultsStore,
+	var storeName = SystemResultsStore,
 		locations_to_plot = [],
 		locations_count = storeName.count();
 	for (var i = 0; i < locations_count; i++){
 		var records = [
-		    storeName.getAt(i).get('product_name'),
-		    parseFloat(storeName.getAt(i).get('latitude')), 
-		    parseFloat(storeName.getAt(i).get('longitude')), 
-		    storeName.getAt(i).get('product_state')
+		    storeName.getAt(i).get('system_name'),
+		    storeName.getAt(i).get('location').latitude, 
+		    storeName.getAt(i).get('location').longitude, 
+		    storeName.getAt(i).get('system_state')
 		];
 		locations_to_plot.push(records);
 	}
@@ -33,17 +33,14 @@ function setMarkers(map){
 		var stateStatus = location[3];
 		var icon;
 		switch (stateStatus){
-		case "active":
+		case "Normal":
 			icon = "http://maps.google.com/mapfiles/ms/icons/green-dot.png";
 			break;
-		case "inactive":
+		case "Minor":
 			icon = "http://maps.google.com/mapfiles/ms/icons/yellow-dot.png";
 			break;
-		case "major":
+		case "Major":
 			icon = "http://maps.google.com/mapfiles/ms/icons/red-dot.png";
-			break;
-		case "pending":
-			icon = "http://maps.google.com/mapfiles/ms/icons/blue-dot.png";
 			break;
 		}
 		var marker = new google.maps.Marker({

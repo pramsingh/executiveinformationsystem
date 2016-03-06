@@ -1,15 +1,18 @@
 <!doctype html>
 <html>
   <head>
-  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="../resources/css/bootstrap.min.css">
   <link rel="stylesheet" href="../resources/css/ext-theme-gray-all.css">
   <link rel="stylesheet" href="../resources/css/bootstrap-switch.css">
   <link rel="stylesheet" href="../resources/components/css/widget.css">
+  <link rel="stylesheet" href="../resources/css/gt-eis-style.css">
   <link rel="stylesheet" href="css/geospatial.css">
   <script src="../resources/conf.js"></script>
   <script src="../resources/js/ext-all.js"></script>
-  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js" type="text/javascript"></script>
+  <script src="../resources/js/jquery.min.js"></script>
+  <script src="../resources/js/bootstrap.min.js"></script>
+  <script src="../resources/js/gtEis.js"></script>
   <script src="../resources/js/highcharts.js"></script>
   <script src="../resources/components/widgetStore/widgetStore.js"></script>
   <script src="../resources/components/widgets/widgets.js"></script>
@@ -24,6 +27,25 @@
   	<script async defer
     	src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCuyBrF3nvxKDKPoobacpXq5lia8yBJIeo&callback=initMap">
     </script>
+    <div class="ucallout bottom" id="user_notification_center"></div>
+  	<div class="callout bottom" id="alert_notification_center">
+  		<div id="alert">
+			<h3>Latest News Notifications</h3>
+			<div id="news">
+				<table id="latest_news" class="table table-hover table-condensed">
+					<thead>
+						<tr>
+							<th id="cbTitle">Ack</th>
+							<th id="cbSubject">Subject</th>
+						</tr>
+					</thead>
+		 			<tbody>
+					</tbody>
+				</table>
+				<button type="button" class="btn btn-info" id="ackBtn">Acknowledge</button>
+			</div>
+		</div>
+  	</div>
     <ul class="metrics">
     	<li title="View Metrics"><a href="#" class="metrics-button graph"></a></li>
     </ul>

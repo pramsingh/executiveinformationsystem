@@ -426,35 +426,71 @@ a:hover {
 .input-group .form-control {
 	width: 95%;
 }
+div.ucallout {
+	float: right;
+}
+
+div.ucallout {
+	box-shadow: 0px 0px 2px #999;
+	min-height: 50px;
+}
+
+.ucallout::before {
+	content: "";
+	width: 0px;
+	height: 0px;
+	border: 0.8em solid transparent;
+	position: absolute;
+}
+
+.ucallout.bottom::before {
+	right: 55px;
+	top: -20px;
+	border-bottom: 14px solid #c9cacf;
+}
+
 #user_notification_center {
-	background: #616161;
-	border-radius: 10px;
-	border-color: #c0c0c0;
-	border-style: solid;
-	border-width: 2px;
+	background: #ffffff;
+	border-bottom-left-radius: 10px;
+	border-bottom-right-radius: 10px;
+	border: 4px solid #c9cacf;
 	right: 0;
 	top: 110px;
 	position: absolute;
-	width: 300px;
-	height: 200px;
+	width: 400px;
+	height: 225px;
 	z-index: 9999;
 }
-#user{
-	text-align: center;
+#user img{
+	height: 110px;
+	width: auto;
+	margin-left: 78px;
+    margin-top: 15px;
+    border-radius: 50%;
+	border: 4px solid #81827d;
+}
+#priv{
+	text-align: left;
+	color: #444;
+}
+#priv h4{
+	padding-bottom: 25px;
 }
 #user h3 {
 	padding: 5px;
-	margin-top: 0;
-	border-top-left-radius: 10px;
-	border-top-right-radius: 10px;
-	background-color: #C94E10;
+	margin-top: 5px;
+	color: #636677;
+	margin-left: 102px;
+	font-size: 18px;
 }
 #priv {
-	float: left;
-	margin-left: 25px;
-}
-#priv h4, #roles h4 {
-	text-decoration: underline;
+	position: absolute;
+	right: 0;
+	top: 0;
+	padding: 20px;
+	height: 100%;
+	background-color: #777;
+	z-index: 10000;
 }
 #priv a:link {
 	font-size: 12px;
@@ -462,19 +498,49 @@ a:hover {
 	color: #000000;
 }
 #roles {
-	float: right;
-	margin-right: 25px;
+	position: absolute;
+	left: 5px;
+	bottom: 10px;
+	width: 80%;
+	text-align: left;
+	z-index: 10001;
+}
+#roles h4{
+	color: #b4b4b4;
 }
 #roles label{
+	padding-left: 0;
 	font-size: 16px;
 	font-weight: normal;
+	color: #6c77c9;
+}
+div.callout {
+	float: right;
+}
+
+div.callout {
+	box-shadow: 0px 0px 2px #999;
+	min-height: 50px;
+}
+
+.callout::before {
+	content: "";
+	width: 0px;
+	height: 0px;
+	border: 0.8em solid transparent;
+	position: absolute;
+}
+
+.callout.bottom::before {
+	right: 104px;
+	top: -20px;
+	border-bottom: 14px solid #4285f4;
 }
 #alert_notification_center{
-	background: #616161;
-	border-radius: 10px;
-	border-color: #c0c0c0;
-	border-style: solid;
-	border-width: 2px;
+	background: #e9e9e9;
+	border-bottom-left-radius: 10px;
+	border-bottom-right-radius: 10px;
+	border: 2px solid #3367d6;
 	right: 0;
 	top: 110px;
 	position: absolute;
@@ -486,20 +552,22 @@ a:hover {
 	text-align: center;
 	padding: 5px;
 	margin-top: 0;
-	border-top-left-radius: 10px;
-	border-top-right-radius: 10px;
-	background-color: #C94E10;
+	font-size: 16px;
+	font-weight: bold;
+	color: #fff;
+	background-color: #4285f4;
 }
 #news {
 	width: 100%;
+	padding: 10px;
 	height: 220px;
-	overflow-y: scroll;
+	overflow-y: auto;
 }
 #cbTitle {
-	width: 10%;
+	width: 15%;
 }
 #cbSubject {
-	width: 90%;
+	width: 85%;
 }
 #cbCenter {
 	text-align: center;
@@ -507,6 +575,9 @@ a:hover {
 #news button{
 	margin: 0 auto;
 	display: block;
+}
+#news .btn-info {
+	background: #508eeb;
 }
 #noResults {
 	padding-top: 50px;

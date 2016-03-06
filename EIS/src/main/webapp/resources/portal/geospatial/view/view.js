@@ -8,29 +8,29 @@ var filtering = Ext.create('Ext.panel.Panel', {
 	border: false,
     frame: false,
 	items: [{
-		xtype: 'combo',
-        fieldLabel: 'Product State',
-        queryMode: 'local',
-        displayField: 'description',
-        valueField: 'code',
-        store: ProductStateStore
-    },{
-    	xtype: 'combo',
-    	padding: '10 0 0 0',
-    	fieldLabel: 'Product System',
-    	queryMode: 'local',
-    	displayField: 'description',
-    	valueField: 'type',
-    	store: ProductSystemStore
-    },{
-    	xtype: 'container', // custom components defined in components widgets
-    	items: [{
-    		xtype: 'projectFilterPanel'
-    	},{
-    		xtype: 'productFilterPanel'
-    	},{
-    		xtype: 'searchFilterPanel'
-    	}]
+//		xtype: 'combo',
+//        fieldLabel: 'Product State',
+//        queryMode: 'local',
+//        displayField: 'description',
+//        valueField: 'code',
+//        store: ProductStateStore
+//    },{
+//    	xtype: 'combo',
+//    	padding: '10 0 0 0',
+//    	fieldLabel: 'Product System',
+//    	queryMode: 'local',
+//    	displayField: 'description',
+//    	valueField: 'type',
+//    	store: ProductSystemStore
+//    },{
+//    	xtype: 'container', // custom components defined in components widgets
+//    	items: [{
+//    		xtype: 'projectFilterPanel'
+//    	},{
+//    		xtype: 'productFilterPanel'
+//    	},{
+//    		xtype: 'searchFilterPanel'
+//    	}]
 	}]
 });
 
@@ -42,27 +42,23 @@ var results = Ext.create('Ext.panel.Panel', {
 	items: [{
 		xtype: 'grid',
 		forceFit: true,
-		store: ProductResultsStore,
+		store: SystemResultsStore,
 		columns: [
-		   {text: 'Product Name', dataIndex: 'product_name'},
-		   {text: 'Version', dataIndex: 'version'},
-		   {text: 'Latitude', dataIndex: 'latitude'},
-		   {text: 'Longitude', dataIndex: 'longitude'},
+		   {text: 'System Name', dataIndex: 'system_name'},
+		   {text: 'Owner', dataIndex:'owner_name',flex: 1},
+		   {text: 'Location', dataIndex: 'location_dir'},
 		   {text: 'State', 
-			dataIndex: 'product_state',
+			dataIndex: 'system_state',
 			renderer: function(value, meta){
 				switch(value){
-				case "active":
+				case "Normal":
 					meta.tdCls = 'active-cell';
 					break;
-				case "inactive":
+				case "Minor":
 					meta.tdCls = 'inactive-cell';
 					break;
-				case "major":
+				case "Major":
 					meta.tdCls = 'major-cell';
-					break;
-				case "pending":
-					meta.tdCls = 'pending-cell';
 					break;
 				}
 			}
@@ -70,7 +66,7 @@ var results = Ext.create('Ext.panel.Panel', {
 		],
 		listeners: {
 			celldblclick: function(td, cellIndex, record, tr, rowIndex, e, eOpts){
-				reCenterMap(tr.data.latitude,tr.data.longitude);
+				reCenterMap(tr.data.location.latitude,tr.data.location.longitude);
 			}
 		}
 	}]
@@ -85,29 +81,29 @@ var filterPanel = Ext.create('Ext.panel.Panel', {
 		animate: true
 	},
 	items: [{
-		title: 'Products',
+		title: 'Systems',
 		width: 400,
 		height: window.innerHeight - 164,
 		items: [results]
 	},{
-		title: 'Filter',
-		width: 400,
-		height: window.innerHeight - 164,
-		items: [filtering],
-			bbar: [{
-	    		xtype: 'tbfill'
-	    	},{
-				xtype: 'button',
-				text: 'Clear',
-				id: 'filterClearBtn',
-				glyph: 0xf12d
-			},{
-				xtype: 'button',
-				margin: '0 15 0 15',
-				text: 'Submit',
-				id: 'filterSubmitBtn',
-				glyph: 0xf1d8
-	    	}]
+//		title: 'Filter',
+//		width: 400,
+//		height: window.innerHeight - 164,
+//		items: [filtering],
+//			bbar: [{
+//	    		xtype: 'tbfill'
+//	    	},{
+//				xtype: 'button',
+//				text: 'Clear',
+//				id: 'filterClearBtn',
+//				glyph: 0xf12d
+//			},{
+//				xtype: 'button',
+//				margin: '0 15 0 15',
+//				text: 'Submit',
+//				id: 'filterSubmitBtn',
+//				glyph: 0xf1d8
+//	    	}]
 	}]
 });
 
@@ -124,7 +120,7 @@ Ext.onReady(function() {
             frame: false,
             height: 110,
             width: '100%',
-            html: '<iframe width="100%" height="130px" frameborder="0" src="../resources/components/dashboardHeader/gtheader.html"></iframe>'
+            html: '<iframe name="header" width="100%" height="130px" frameborder="0" src="../resources/components/dashboardHeader/gtheader.html"></iframe>'
         },{
             region: 'west',
             border: false,
