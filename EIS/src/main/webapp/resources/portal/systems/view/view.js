@@ -139,7 +139,7 @@ Ext.onReady(function() {
             frame: false,
             height: 110,
             width: '100%',
-            html: '<iframe width="100%" height="130px" frameborder="0" src="../resources/components/dashboardHeader/gtheader.html"></iframe>'
+            html: '<iframe id="header" width="100%" height="130px" frameborder="0" src="../resources/components/dashboardHeader/gtheader.html"></iframe>'
         },{
             region: 'west',
             border: false,

@@ -16,6 +16,7 @@
   <script src="../resources/js/jquery.min.js"></script>
   <script src="../resources/js/bootstrap.min.js"></script>
   <script src="../resources/js/bootstrap-switch.js"></script>
+  <script src="../resources/js/gtEis.js"></script>
   <script src="../resources/components/widgetStore/widgetStore.js"></script>
   <script src="../resources/components/widgets/widgets.js"></script>
   <script src="../resources/components/widgetController/widgetController.js"></script>
@@ -28,6 +29,25 @@
   <script src="js/systems.js"></script>
   </head>
   <body>
+  	<div id="user_notification_center"></div>
+  	<div id="alert_notification_center">
+  		<div id="alert">
+			<h3>Latest News Notifications</h3>
+			<div id="news">
+				<table id="latest_news" class="table table-hover table-condensed">
+					<thead>
+						<tr>
+							<th id="cbTitle">Ack</th>
+							<th id="cbSubject">Subject</th>
+						</tr>
+					</thead>
+		 			<tbody>
+					</tbody>
+				</table>
+				<button type="button" class="btn btn-info" id="ackBtn">Acknowledge</button>
+			</div>
+		</div>
+  	</div>
 	 <ul class="details">
 	 	<li title="View Details"><a href="#" class="details-button home"></a></li>
 	 </ul>

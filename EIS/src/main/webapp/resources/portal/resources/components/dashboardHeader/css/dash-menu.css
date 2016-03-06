@@ -48,3 +48,46 @@ a{
 .red{background:#D52100;}
 .purple{background:#5122B4;}
 .blue{background:#0292C0;}
+
+#info {
+	clear: both;
+	width: 100%;
+	top: 85px;
+	margin: 0 auto;
+	position: absolute;
+	z-index: 3;
+}
+#notification, #userInfo {
+	float: right;
+}
+#notification {
+	width: 50px;
+}
+.alert, .user {
+	font-size: 22px;
+}
+.spot {
+	margin-left: -8px;
+	font-size: 16px;
+	background: #ff0000;
+	border-radius: 0.8em;
+	-moz-border-radius: 0.8em;
+	-webkit-border-radius: 0.8em;
+	color: #ffffff;
+	display: inline-block;
+	font-weight: bold;
+	line-height: 18px;
+	text-align: center;
+	width: 18px; 
+}
+#userInfo {
+	width: 120px;
+	margin-right: 8px;
+	text-align: right;
+}
+.userName {
+	font-size: 16px;
+	font-weight: bold;
+	line-height: 18px;
+	padding-left: 10px;
+}

@@ -8,7 +8,8 @@ gtConstants.CVE = gtConstants.CVE || {};
 gtConstants.Util = {
 	details_is_open: false,
 	details_data: null,
-	details_index: null
+	details_index: null,
+	notif_is_open: false
 };
 
 gtConstants.URI = {
