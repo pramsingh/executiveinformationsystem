@@ -20,7 +20,7 @@ var SystemStateLocationStore = Ext.create('Ext.data.Store', {
 	model: 'SystemStateLocationModel',
 	proxy: {
 		type: 'ajax',
-		url: '../resources/data/state_hash.json',
+		url: '../resources/data/state_hash.json', //replace with webservice url
 		reader: {
 			type: 'json'
 		}
@@ -32,7 +32,7 @@ var SystemResultsStore = Ext.create('Ext.data.Store', {
 	model: 'SystemResultsModel',
 	proxy: {
 		type: 'ajax',
-		url: '../resources/data/systemResults.json',
+		url: '../resources/data/systemResults.json', //replace with webservice url
 		reader: {
 			type: 'json'
 		}

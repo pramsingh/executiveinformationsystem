@@ -23,7 +23,7 @@ var ProductResultsStore = Ext.create('Ext.data.Store', {
 	model: 'ProductsResultsModel',
 	proxy: {
 		type: 'ajax',
-		url: '../resources/data/productResults.json',
+		url: '../resources/data/productResults.json', //replace with webservice url
 		reader: {
 			type: 'json'
 		}

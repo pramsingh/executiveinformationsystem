@@ -30,6 +30,7 @@ function requestChartData(){
 	getLowProductImpact();
 };
 function getTopProducts(){
+	//todo replace url in the getJSON with real webservice
 	$.getJSON("../resources/data/topProducts.json", function(data){
 		$('#left_donut').highcharts({
 			chart: {
@@ -81,6 +82,7 @@ function getTopProducts(){
 	});
 };
 function getTopProductImpact(){
+	//todo replace url in the getJSON with real webservice
 	$.getJSON("../resources/data/productHighImpact.json", function(data){
 		$('#left_graph').highcharts({
 			chart: {
@@ -110,6 +112,7 @@ function getTopProductImpact(){
 	});
 };
 function getLowProductImpact(){
+	//todo replace url in the getJSON with real webservice
 	$.getJSON("../resources/data/productLowImpact.json", function(data){
 		Highcharts.setOptions({
 			colors: ['#0085ca', '#ff7900', '#f10e19', '#e3e03b', '#2e7a28', '#10C99B', '#493C9E']
@@ -142,63 +145,66 @@ function getLowProductImpact(){
 	});
 };
 function getTopSystems(){
-	var data = [];
-	function getData(){
-		var store = SystemResultsStore;
-		for (var i = 0; i < store.data.length; i++){
-			if (store.data.items[i].data.system_state === "Major"){
-				var con = [];
-				var name = store.data.items[i].data.system_name;
-				var val = store.data.items[i].data.products.length;
-				con.push(name);
-				con.push(val);
-				data.push(con);
+	//todo replace url in the getJSON with real webservice
+//	$.getJSON("../resources/data/productLowImpact.json", function(data){    <-- uncomment here and remove lines 150 - 164
+		var data = [];
+		function getData(){
+			var store = SystemResultsStore;
+			for (var i = 0; i < store.data.length; i++){
+				if (store.data.items[i].data.system_state === "Major"){
+					var con = [];
+					var name = store.data.items[i].data.system_name;
+					var val = store.data.items[i].data.products.length;
+					con.push(name);
+					con.push(val);
+					data.push(con);
+				}
 			}
-		}
-	};
-	getData();
-	$('#right_donut').highcharts({
-		chart: {
-			backgroundColor: 'transparent',
-			type: 'pie'
-		},
-		title: {
-			text: 'Top Vulnerable Systems',
-			style: {
-				color: '#ffffff',
-				fontSize: '10pt',
-				fontWeight: 'bold'
-			}
-		},
-		plotOptions: {
-			pie: {
-				allowPointSelect: true,
-				innerSize: 50,
-				dataLabels: {
-					enabled: false
-				},
-				showInLegend: true
-			}
-		},
-		legend: {
-			layout: 'vertical',
-			align: 'right',
-			verticalAlign: 'middle',
-			floating: true,
-			itemWidth: 10,
-			useHTML: true,
-			itemStyle: {
-				fontSize: '10px',
-				color: '#FFFFFF'
+		};
+		getData();
+		$('#right_donut').highcharts({
+			chart: {
+				backgroundColor: 'transparent',
+				type: 'pie'
 			},
-			itemHoverStyle: {
-				color: '#508eeb'
-			}
-		},
-		series: [{
-			colorByPoint: true,
-			name: 'Products',
-			data: data
-		}]
-	});
+			title: {
+				text: 'Top Vulnerable Systems',
+				style: {
+					color: '#ffffff',
+					fontSize: '10pt',
+					fontWeight: 'bold'
+				}
+			},
+			plotOptions: {
+				pie: {
+					allowPointSelect: true,
+					innerSize: 50,
+					dataLabels: {
+						enabled: false
+					},
+					showInLegend: true
+				}
+			},
+			legend: {
+				layout: 'vertical',
+				align: 'right',
+				verticalAlign: 'middle',
+				floating: true,
+				itemWidth: 10,
+				useHTML: true,
+				itemStyle: {
+					fontSize: '10px',
+					color: '#FFFFFF'
+				},
+				itemHoverStyle: {
+					color: '#508eeb'
+				}
+			},
+			series: [{
+				colorByPoint: true,
+				name: 'Products',
+				data: data
+			}]
+		});
+//	});                                <-- also uncomment here
 };
