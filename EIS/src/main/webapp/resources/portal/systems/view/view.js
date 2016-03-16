@@ -176,7 +176,7 @@ Ext.onReady(function() {
             border: false,
             frame: false,
             layout: 'fit',
-            title: 'Results',
+            title: 'System List',
             cls: 'results-grid',
             id: 'SystemResultsGrid',
             items: [{
@@ -195,10 +195,10 @@ Ext.onReady(function() {
 									mark_status = '<i class="fa fa-exclamation-circle" style="width: 40%;float:right;color:red;" data-qtip="System Status: Major"></i>';
 									break;
 								case "Minor":
-									mark_status = '</i><i class="fa fa-exclamation-triangle" style="width: 40%;float:right;color:yellow;" data-qtip="System Status: Minor"></i>';
+									mark_status = '<i class="fa fa-exclamation-triangle" style="width: 40%;float:right;color:yellow;" data-qtip="System Status: Minor"></i>';
 									break;
 								case "Normal":
-									mark_status = '</i><i class="fa fa-star" style="width: 40%;float:right;color:green;" data-qtip="System Status: Normal"></i>';
+									mark_status = '<i class="fa fa-star" style="width: 40%;float:right;color:green;" data-qtip="System Status: Normal"></i>';
 									break;
 							}
 							

@@ -1,9 +1,18 @@
 $(document).ready(function(){
+	window.addEventListener('storage', function(ev){
+		var val = localStorage.getItem("spotVal");
+		if (val != null){
+			if (val != 0){
+				$('#header').contents().find(".spot").text(val);
+			}else {
+				$('#header').contents().find(".spot").hide();
+			}
+		}
+	});
 	$('#user_notification_center').hide();
 	$('#alert_notification_center').hide();
-		
 	$("#ackBtn").click(function(){
-		var selected = []
+		var selected = [];
 		$.each($("input[name='cbgroup']:checked"),function(){
 			selected.push($(this).val());
 		});

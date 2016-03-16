@@ -156,37 +156,47 @@ html, body { height: 100%; margin: 0; padding: 0; }
 	position: relative;
 	clear: both;
 }
-
+.highcharts-legend-item span {
+	left: -119px !important;
+	right: 5px !important;
+    text-align:right!important;
+}
 #left_donut{
-	position: relative;
-	float: left;
+	left: 0;
+	position: absolute;
 	height: 190px;
 	width: 30%;
 }
 #center_dash{
-	float: left;
-	margin-left: 20%;
-	position: absolute;
+	margin: 0px auto;
 	width: 40%;
 }
-#left_graph{
-	float: left;
-	height: 190px;
-	width: 33%;
+.pi {
+	text-align: center;
+	position: absolute;
+	z-index: 9999999;
 }
-#center_graph{
-	float: left;
+.pi h5{
+	font-family: "Lucida Grande","Lucida Sans Unicode",Arial,Helvetica,sans-serif;
+	color: #ffffff;
+	font-size: 13px;
+	font-weight: 600;
+}
+#left_graph{
 	height: 190px;
-	width: 33%;
+	float: left;
+	margin-left: 55px;
+	margin-top: -30px;
 }
 #right_graph{
-	float: left;
 	height: 190px;
-	width: 33%;
+	float: right;
+	margin-right: 55px;
+	margin-top: -30px;
 }
 #right_donut{
-	float: right;
-	position: relative;
+	right: 0;
+	position: absolute;
 	height: 190px;
 	width: 30%;
 }
@@ -225,4 +235,51 @@ html, body { height: 100%; margin: 0; padding: 0; }
 	position: absolute;
 	padding-left: 35%;
 	padding-top: 4px;
+}
+.gm-style-iw {
+    width: 275px !important;
+    top: 15px !important;
+    left: 0px !important;
+    margin-right: 0px !important;
+    background-color: rgba(0,0,0,0.75);
+    box-shadow: 0 1px 6px rgba(178, 178, 178, 0.6);
+    border: 1px solid rgba(72, 181, 233, 0.6);
+    border-radius: 2px 2px 10px 10px;
+}
+#title {
+	background: #508eeb;
+	padding: 10px;
+	margin: 0 !important;
+	color: #fff;
+	text-align: center;
+	width: 275px;
+}
+#content {
+	margin-top: 5px;
+	margin-left: 5px;
+	padding: 10px;
+	color: #fff;
+}
+#contact {
+	color: #fff;
+	width: 275px;
+	margin-top: 20px;
+	padding: 10px;
+	margin-bottom: 0 !important;
+	bottom: 0 !important;
+	background: #fc5402;
+}
+.co {
+	color: #09f909;
+	font-weight: bold;
+}
+.cco {
+	color: #000;
+	font-weight: bold;
+}
+#location i {
+	color: #ff0000;
+}
+#contact i {
+	color: #000;
 }

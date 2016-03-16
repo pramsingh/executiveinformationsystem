@@ -51,23 +51,25 @@ $(document).ready(function(){
 	});
 	$('.edit-form').submit(function(event){
 		event.preventDefault();
-		record_index = gtConstants.Util.details_index;
 		
-		rev_date = $("#last_revised_input").val();
-		prod_name = $("#product_name_input").val();
-		impact_val = $("#impact_subscore_input").val();
-		exploit_val = $("#exploitability_subscore_input").val();
-		source_val = $("#source_input").val();
-		integrity_val = $("#integrity_input").val();
-		av_val = $("#access_vector_input").val();
-		ac_val = $("#access_complexity_input").val();
-		auth_val = $("#authentication_input").val();
-		it_val = $("#impact_type_input").val();
-		overview_val =$("#overview_input").val();
-		var rec = ProductResultsStore.getAt(record_index);
-		var state_val;
-		var der_expl_val = Math.round(exploit_val);
-		switch (der_expl_val){
+		var record_index = gtConstants.Util.details_index,
+			rev_date = $("#last_revised_input").val(),
+			prod_name = $("#product_name_input").val(),
+			impact_val = $("#impact_subscore_input").val(),
+			exploit_val = $("#exploitability_subscore_input").val(),
+			source_val = $("#source_input").val(),
+			integrity_val = $("#integrity_input").val(),
+			av_val = $("#access_vector_input").val(),
+			ac_val = $("#access_complexity_input").val(),
+			auth_val = $("#authentication_input").val(),
+			it_val = $("#impact_type_input").val(),
+			overview_val =$("#overview_input").val(),
+			rec = ProductResultsStore.getAt(record_index),
+			state_val = "",
+			der_expl_val = null;
+		
+		der_expl_val = Math.round(exploit_val);
+		switch (true){
 			case(der_expl_val >= 8):
 				state_val = "Critical";
 				break;
@@ -85,40 +87,44 @@ $(document).ready(function(){
 				break;
 		}
 		
-		rec.set('last_revised', rev_date);
-		rec.set('product_name', prod_name);
-		rec.set('impact_subscore', impact_val);
-		rec.set('exploitability_subscore', exploit_val);
-		rec.set('source', source_val);
-		rec.set('state', state_val);
-		rec.set('integrity', integrity_val);
-		rec.set('access_vector', av_val);
-		rec.set('access_complexity', ac_val);
-		rec.set('authentication', auth_val);
-		rec.set('impact_type', it_val);
-		rec.set('overview', overview_val);
+		var updateRec = {
+				"last_revised": rev_date,
+				"product_name": prod_name,
+				"impact_subscore": impact_val,
+				"exploitability_subscore": exploit_val,
+				"source": source_val,
+				"state": state_val,
+				"integrity": integrity_val,
+				"access_vector": av_val,
+				"access_complexity": ac_val,
+				"authentication": auth_val,
+				"impact_type": it_val,
+				"overview": overview_val
+		}
+		rec.set(updateRec);
+		localStorage.setItem("updateProdIndex", record_index);
+		localStorage.setItem("updateProduct", JSON.stringify(updateRec));
 		
 		$('#edit_reset').trigger("click");
 		$('.details-button').trigger("click");
 	});
 	$('#add-form').submit(function(event){
 		event.preventDefault();
+		var orig_date = $("#original_release_date_add_input").val(),
+			rev_date = $("#original_release_date_add_input").val(),
+			prod_name = $("#product_name_add_input").val(),
+			impact_val = $("#impact_subscore_add_input").val(),
+			exploit_val = $("#exploitability_subscore_add_input").val(),
+			source_val = $("#source_add_input").val(),
+			integrity_val = $("#integrity_add_input").val(),
+			av_val = $("#access_vector_add_input").val(),
+			ac_val = $("#access_complexity_add_input").val(),
+			auth_val = $("#authentication_add_input").val(),
+			it_val = $("#impact_type_add_input").val(),
+			overview_val =$("#overview_add_input").val(),
+			state_val = "",
+			der_expl_val = Math.round(exploit_val);
 		
-		orig_date = $("#original_release_date_add_input").val();
-		rev_date = $("#original_release_date_add_input").val();
-		prod_name = $("#product_name_add_input").val();
-		impact_val = $("#impact_subscore_add_input").val();
-		exploit_val = $("#exploitability_subscore_add_input").val();
-		source_val = $("#source_add_input").val();
-		integrity_val = $("#integrity_add_input").val();
-		av_val = $("#access_vector_add_input").val();
-		ac_val = $("#access_complexity_add_input").val();
-		auth_val = $("#authentication_add_input").val();
-		it_val = $("#impact_type_add_input").val();
-		overview_val =$("#overview_add_input").val();
-		
-		var state_val;
-		var der_expl_val = Math.round(exploit_val);
 		switch (der_expl_val){
 			case(der_expl_val >= 8):
 				state_val = "Critical";
@@ -137,21 +143,23 @@ $(document).ready(function(){
 				break;
 		}
 		
-		ProductResultsStore.add({
-			original_release_date: orig_date,
-			last_revised: rev_date,
-			product_name: prod_name,
-			impact_subscore: impact_val,
-			exploitability_subscore: exploit_val,
-			source: source_val,
-			state: state_val,
-			integrity: integrity_val,
-			access_vector: av_val,
-			access_complexity: ac_val,
-			authentication: auth_val,
-			impact_type: it_val,
-			overview: overview_val
-		});
+		var newRec = {
+				"original_release_date": orig_date,
+				"last_revised": rev_date,
+				"product_name": prod_name,
+				"impact_subscore": impact_val,
+				"exploitability_subscore": exploit_val,
+				"source": source_val,
+				"state": state_val,
+				"integrity": integrity_val,
+				"access_vector": av_val,
+				"access_complexity": ac_val,
+				"authentication": auth_val,
+				"impact_type": it_val,
+				"overview": overview_val	
+		}
+		ProductResultsStore.add(newRec);
+		localStorage.setItem("newProduct", JSON.stringify(newRec));
 		
 		$('#add_form_reset').trigger("click");
 		$('.add-button').trigger("click");

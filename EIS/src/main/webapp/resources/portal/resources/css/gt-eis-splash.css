@@ -74,6 +74,6 @@ h1 {
 	height: 45px;
 	color: #fff;
 }
-.btn-warning:hover, .btn-warning:focus, .btn-warning:active, .btn-warning.active, .open > .dropdown-toggle.btn-warning {
-	background: #32166E;
+.btn-warning:hover, .btn-warning:focus, .btn-warning:active {
+	background: #32166E !important;
 }

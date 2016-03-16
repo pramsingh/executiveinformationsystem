@@ -1,4 +1,77 @@
 $(document).ready(function(){
+	window.addEventListener('storage', function(ev){
+		var upIndex = localStorage.getItem("updateProdIndex");
+		if (upIndex != null){
+			var rec = ProductResultsStore.getAt(upIndex);
+			var upVal = JSON.parse(localStorage.getItem("updateProduct"));
+			upVal.exploitability_subscore = parseFloat(upVal.exploitability_subscore)
+			upVal.impact_subscore = parseFloat(upVal.impact_subscore)
+			rec.set(upVal);
+			
+			var pName = upVal.product_name,
+				pScore = upVal.exploitability_subscore,
+				store = SystemResultsStore.data.items,
+				stLength = store.length;
+			for (var i = 0; i < stLength; i++){
+				var stPLength = store[i].data.products.length,
+					stPList = store[i].data.products,
+					plExpl = null,
+					total = null,
+					sys_state_val = "";
+				for (var x = 0; x < stPLength; x++){
+					if (stPList[x].product_name == pName){
+						stPList[x].exploitability_subscore = pScore;
+					}
+					plExpl = plExpl + stPList[x].exploitability_subscore;
+				}
+				total = plExpl / stPLength;
+				switch (true){
+					case (total >= 7):
+						sys_state_val = "Major";
+						break;
+					case(total >= 4 && total < 7):
+						sys_state_val = "Minor";
+						break;
+					case(total >=0 && total < 4):
+						sys_state_val = "Normal";
+						break;
+				}
+				
+				var cur_state = store[i].data.system_state;
+				if (cur_state != sys_state_val){
+					store[i].data.system_state = sys_state_val;
+					var ikey = "sysIndex"+i,
+						vkey = "sysUpdate"+i;
+					localStorage.setItem(ikey, i);
+					localStorage.setItem(vkey, JSON.stringify(store[i].data));
+				}
+				cur_state = sys_state_val;
+				
+				var mark_status = "";
+				
+				switch(sys_state_val){
+					case "Major":
+						mark_status = '<i class="fa fa-exclamation-circle" style="width: 40%;float:right;color:red;" data-qtip="System Status: Major"></i>';
+						break;
+					case "Minor":
+						mark_status = '<i class="fa fa-exclamation-triangle" style="width: 40%;float:right;color:yellow;" data-qtip="System Status: Minor"></i>';
+						break;
+					case "Normal":
+						mark_status = '<i class="fa fa-star" style="width: 40%;float:right;color:green;" data-qtip="System Status: Normal"></i>';
+						break;
+				}
+				$(".x-grid-table tbody")[1].childNodes[i].cells[0].childNodes[0].childNodes[1].outerHTML = mark_status;
+			}
+			
+			localStorage.removeItem("updateProdIndex");
+			localStorage.removeItem("updateProduct");
+		}
+		var pval = JSON.parse(localStorage.getItem("newProduct"));
+		if (pval != null){
+			ProductResultsStore.add(pval);
+			localStorage.removeItem("newProduct");
+		}
+	});
 	$(".details-button").click(function(){
 		$('#state_list').load('partials/state_list.html');
 		$("#city_input").popover('hide');
@@ -52,12 +125,11 @@ $(document).ready(function(){
 	$('#datepick').datepicker();
 	$('#dp2').attr("data-date", cur_date);
 	$('#dp2').datepicker();
-//todo jump to geo mech to send data to geo dash	
-	
-//	$('#jumpToGeo').click(function(){
-//		var url = gtConstants.CVE.getUrl+gtConstants.CVE.setID;
-//		window.open(url, "_blank");
-//	});
+
+	$('#jumpToGeo').click(function(){
+		localStorage.setItem('jumpLoc', JSON.stringify(window.gtConstants.Util.details_data));
+		window.open("../geospatial/index.html", "_blank");
+	});
 	$('.edit-form').submit(function(event){
 		event.preventDefault();
 		var loc_lat_val,
@@ -80,7 +152,7 @@ $(document).ready(function(){
 			sso_email_val = $("#sso_email_input").val(),
 			sso_phone_val =$("#sso_phone_input").val(),
 			sys_state_val = "",
-			total = der_expl_val / count,
+			total = null,
 			rec = SystemResultsStore.getAt(record_index);
 		
 		$(selected_products).each(function(i,val){
@@ -90,7 +162,7 @@ $(document).ready(function(){
 		});
 		
 		flat_prod_list = selected_products.join(" ");
-		
+		total = der_expl_val / count;
 		switch (true){
 			case (total >= 7):
 				sys_state_val = "Major";
@@ -131,22 +203,27 @@ $(document).ready(function(){
 						
 				};
 				var loc_dir = loc_city_val +', '+loc_state_val;
-				rec.set('last_assessment_date', last_date);
-				rec.set('system_name', sys_name);
-				rec.set('system_state', sys_state_val);
-				rec.set('owner_name', own_val);
-				rec.set('division', div_val);
-				rec.set('products', prod_list);
-				rec.set('product_list', flat_prod_list);
-				rec.set('location_state', loc_state_val);
-				rec.set('location_city', loc_city_val);
-				rec.set('location', location);
-				rec.set('contact', contact);
-				rec.set('location_dir', loc_dir);
-				rec.set('has_geo', has_geo);
-				rec.set('sso_name', sso_name_val);
-				rec.set('sso_email', sso_email_val);
-				rec.set('sso_phone', sso_phone_val);
+				var updateRec = {
+					"last_assessment_date": last_date,
+					"system_name": sys_name,
+					"system_state": sys_state_val,
+					"owner_name": own_val,
+					"division": div_val,
+					"products": prod_list,
+					"product_list": flat_prod_list,
+					"location_state": loc_state_val,
+					"location_city": loc_city_val,
+					"location": location,
+					"location_dir": loc_dir,
+					"has_geo": has_geo,
+					"contact": contact,
+					"sso_name": sso_name_val,
+					"sso_email": sso_email_val,
+					"sso_phone": sso_phone_val	
+				}
+				rec.set(updateRec);
+				localStorage.setItem("updateIndex", record_index);
+				localStorage.setItem("updateSystem", JSON.stringify(updateRec));
 				
 				$('#edit_reset').trigger("click");
 				$('.details-button').trigger("click");
@@ -174,7 +251,7 @@ $(document).ready(function(){
 			sys_state_val,
 			loc_lat_val,
 			loc_lon_val,
-			total = der_expl_val / count,
+			total = null,
 			has_geo = false,
 			last_date = $("#last_assessment_date_add_input").val(),
 			sys_name = $("#system_name_add_input").val(),
@@ -194,7 +271,7 @@ $(document).ready(function(){
 		});
 		
 		flat_prod_list = selected_products.join(" ");
-		
+		total = der_expl_val / count;
 		switch (true){
 			case (total >= 7):
 				sys_state_val = "Major";
@@ -236,26 +313,27 @@ $(document).ready(function(){
 						
 				};
 				var loc_dir = loc_city_val +', '+loc_state_val;
-				
-				SystemResultsStore.add({
-					last_assessment_date: last_date,
-					system_name: sys_name,
-					system_state: sys_state_val,
-					owner_name: own_val,
-					division: div_val,
-					products: prod_list,
-					product_list: flat_prod_list,
-					location_state: loc_state_val,
-					location_city: loc_city_val,
-					location: location,
-					location_dir: loc_dir,
-					has_geo: has_geo,
-					contact: contact,
-					sso_name: sso_name_val,
-					sso_email: sso_email_val,
-					sso_phone: sso_phone_val
-				});
-				
+				var newRec = {
+					"last_assessment_date": last_date,
+					"system_name": sys_name,
+					"system_state": sys_state_val,
+					"owner_name": own_val,
+					"division": div_val,
+					"products": prod_list,
+					"product_list": flat_prod_list,
+					"location_state": loc_state_val,
+					"location_city": loc_city_val,
+					"location": location,
+					"location_dir": loc_dir,
+					"has_geo": has_geo,
+					"contact": contact,
+					"sso_name": sso_name_val,
+					"sso_email": sso_email_val,
+					"sso_phone": sso_phone_val	
+				}
+				SystemResultsStore.add(newRec);
+				localStorage.setItem("newSystem", JSON.stringify(newRec));
+
 				$('#add_form_reset').trigger("click");
 				$('.add-button').trigger("click");
 			} else{
