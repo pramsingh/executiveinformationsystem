@@ -1,4 +1,10 @@
 $(document).ready(function(){
+	if (window.innerHeight < 925){
+		var setHeight = window.innerHeight - 250,
+			heightVal = setHeight + "px";
+		$(".formHolder").css("height", heightVal);
+		$(".edit-form").css("height", heightVal);
+	};
 	window.addEventListener('storage', function(ev){
 		var val = localStorage.getItem("spotVal");
 		if (val != null){

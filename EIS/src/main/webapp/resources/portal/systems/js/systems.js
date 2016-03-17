@@ -81,6 +81,11 @@ $(document).ready(function(){
 			gtConstants.Util.details_is_open = true;
 			$('input[name="editable"]').bootstrapSwitch('state',false);
 			$(".details-bar").toggleClass( "open" );
+			if (window.innerHeight < 925){
+				var setHeight = window.innerHeight - 250,
+					heightVal = setHeight + "px";
+				$(".details-panel").css({"height":heightVal,"overflow-y":"auto"});
+			}
 			$(".details").toggleClass("slide");
 		}else{
 			gtConstants.Util.details_is_open = false;

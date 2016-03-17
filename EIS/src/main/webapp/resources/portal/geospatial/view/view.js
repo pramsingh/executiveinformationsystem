@@ -16,9 +16,6 @@ var filtering = Ext.create('Ext.panel.Panel', {
         valueField: 'description',
         store: SystemStateStore
 	  },{
-		xtype: 'mouseseparator',
-		width: '100%'
-	  },{
 		xtype: 'label',
 		margin: '25 0 0 0',
 		text: 'Location',
